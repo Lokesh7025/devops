@@ -5,7 +5,8 @@
 1. a **Freestyle project driven by simple commands**, and
 2. a **Freestyle project built from a GitHub repository**.
 
-Every step has a screenshot in [`screenshots/`](screenshots), numbered in the order it was performed.
+Every step has a screenshot in [`screenshots/`](screenshots), numbered in the order it was performed —
+including a build captured mid-execution and the artifact Jenkins produced actually running.
 
 ---
 
@@ -181,7 +182,56 @@ Full log: [`logs/02-freestyle-github-snake-game-build-1.log`](logs/02-freestyle-
 
 ---
 
-## 5. Comparing the two jobs
+## 5. A build while it is executing
+
+The screenshots above show finished builds. Build **#2** of the same job was triggered and
+captured mid-flight, to show what Jenkins looks like while work is actually in progress:
+the console output streams live (note the animation dots under the log, and that Maven has
+only just been invoked), and the **Build Executor Status** panel shows executor 1 of 2 occupied
+by `02-freestyle-github-snake-game #2` with a progress bar.
+
+| # | Screenshot | Step |
+|---|-----------|------|
+| 23 | [`23-job2-build-in-progress.png`](screenshots/23-job2-build-in-progress.png) | Console output *while building* — Git checkout done, `mvn.cmd clean package` just launched |
+| 24 | [`24-build-executor-running.png`](screenshots/24-build-executor-running.png) | Dashboard — **Build Executor Status 1/2**, build #2 running with a progress bar |
+
+Build #2 also finished `SUCCESS`.
+Full log: [`logs/02-freestyle-github-snake-game-build-2.log`](logs/02-freestyle-github-snake-game-build-2.log)
+
+---
+
+## 6. Running the artifact Jenkins produced
+
+A CI build is only meaningful if what it produces actually works. `snake.jar` was taken from
+build #1's **archived artifacts** and executed:
+
+```powershell
+# the exact file Jenkins archived
+copy "%JENKINS_HOME%\jobs\02-freestyle-github-snake-game\builds\1\archive\target\snake.jar" .
+javaw -jar snake.jar
+```
+
+Two Windows details worth recording:
+
+* The game is a [Lanterna](https://github.com/mabe02/lanterna) terminal application. Started with
+  `java.exe` from a console it fails with `IOException: To start java on Windows, use javaw!`
+  — Lanterna mistakes the console for a Cygwin TTY and tries to run `stty.exe`.
+  Launching with **`javaw.exe`** makes Lanterna fall back to its Swing terminal emulator, which
+  is the window titled `SwingTerminalFrame` in the screenshots.
+* The snake starts moving right on a 150 ms tick and hits the wall after about 1.5 s, so the
+  capture script takes a burst of frames from the moment the window appears.
+
+| # | Screenshot | Step |
+|---|-----------|------|
+| 25 | [`25-artifact-snake-game-running.png`](screenshots/25-artifact-snake-game-running.png) | `snake.jar` running — snake (green), food (red), score line |
+| 26 | [`26-artifact-snake-game-over.png`](screenshots/26-artifact-snake-game-over.png) | The same run a moment later — `GAME OVER! Score: 0` |
+
+This closes the loop: source on GitHub → Jenkins checkout → Maven `clean package` → archived
+`snake.jar` → a running application.
+
+---
+
+## 7. Comparing the two jobs
 
 | | Project 1 | Project 2 |
 |---|-----------|-----------|
@@ -197,7 +247,7 @@ source from a remote SCM, and turning it into a versioned, archived build artifa
 
 ---
 
-## 6. Reproducing this lab
+## 8. Reproducing this lab
 
 `tools/` holds the scripts used to perform and capture the lab:
 
@@ -210,19 +260,21 @@ source from a remote SCM, and turning it into a versioned, archived build artifa
 | `step1_wizard.py`, `step1b_wizard.py` | Drive the setup wizard |
 | `step2`–`step5` | Create, configure, save and build project 1 |
 | `step6`–`step11` | Register Maven, then create, configure, build and capture project 2 |
+| `step12_build_in_progress.py` | Trigger a build and capture it mid-execution |
+| `Capture-SnakeRun.ps1` | Run the archived `snake.jar` and burst-capture the game |
 
 The admin credentials are read from `JENKINS_ADMIN_USER` / `JENKINS_ADMIN_PASS` environment
 variables, so no password is stored in this repository.
 
 ---
 
-## 7. Folder contents
+## 9. Folder contents
 
 ```
 jenkins-lab-1/
 ├── README.md                 this report
-├── screenshots/              22 screenshots, numbered in execution order
+├── screenshots/              26 screenshots, numbered in execution order
 ├── jobs/                     exported config.xml for both freestyle projects
-├── logs/                     full console logs of build #1 of each project
+├── logs/                     full console logs of every build
 └── tools/                    scripts used to install, drive and capture the lab
 ```

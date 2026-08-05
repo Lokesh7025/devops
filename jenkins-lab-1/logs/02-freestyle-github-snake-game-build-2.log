@@ -1,0 +1,72 @@
+Started by user [8mha:////4CyzGAremz8xP+qG2v9sXv0Q2ATXTJDjfLSixOhZ3uc+AAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzeEgYe/dLi1CL9nPzs1OIMAIt1cvrBAAAA[0mLokesh Selvam
+Running as SYSTEM
+Building in workspace C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Lokesh7025/devops.git # timeout=10
+Fetching upstream changes from https://github.com/Lokesh7025/devops.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.47.1.windows.2'
+ > git.exe fetch --tags --force --progress -- https://github.com/Lokesh7025/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 0a3a96f27990a09acd8e1c3ad263e39bd7ca58ad (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 0a3a96f27990a09acd8e1c3ad263e39bd7ca58ad # timeout=10
+Commit message: "fix"
+ > git.exe rev-list --no-walk 0a3a96f27990a09acd8e1c3ad263e39bd7ca58ad # timeout=10
+[02-freestyle-github-snake-game] $ cmd.exe /C "C:\Users\lokes\tools\apache-maven-3.9.16\bin\mvn.cmd clean package && exit %%ERRORLEVEL%%"
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.snake:snake-game >------------------------
+[INFO] Building snake-game 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ snake-game ---
+[INFO] Deleting C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\target
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ snake-game ---
+[INFO] skip non existing resourceDirectory C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ snake-game ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 4 source files with javac [debug target 17] to target\classes
+[INFO] /C:/Users/lokes/jenkins-lab/home/workspace/02-freestyle-github-snake-game/src/main/java/com/snake/Main.java: C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\src\main\java\com\snake\Main.java uses or overrides a deprecated API.
+[INFO] /C:/Users/lokes/jenkins-lab/home/workspace/02-freestyle-github-snake-game/src/main/java/com/snake/Main.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ snake-game ---
+[INFO] skip non existing resourceDirectory C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ snake-game ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ snake-game ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ snake-game ---
+[INFO] Building jar: C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\target\snake.jar
+[INFO] 
+[INFO] --- shade:3.5.1:shade (default) @ snake-game ---
+[INFO] Including com.googlecode.lanterna:lanterna:jar:3.1.1 in the shaded jar.
+[INFO] Dependency-reduced POM written at: C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\dependency-reduced-pom.xml
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] lanterna-3.1.1.jar, snake.jar define 1 overlapping resource: 
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING]   - META-INF/MANIFEST.MF
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] maven-shade-plugin has detected that some files are
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] present in two or more JARs. When this happens, only one
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] single version of the file is copied to the uber jar.
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] Usually this is not harmful and you can skip these warnings,
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] otherwise try to manually exclude artifacts based on
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[8mha:////4FgtmMOeiSGKTr9Bwkf7f6YUd77EW/ZowqEXKFs0fFFYAAAAYh+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6SeOJwgmrt9CSsTA0NFEYMUVEtyfl5xfk6qnjOEBilkgABGkMICAEQzmI1iAAAA[0m[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\target\snake.jar with C:\Users\lokes\jenkins-lab\home\workspace\02-freestyle-github-snake-game\target\snake-game-1.0-SNAPSHOT-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.797 s
+[INFO] Finished at: 2026-08-05T17:16:41+05:30
+[INFO] ------------------------------------------------------------------------
+Archiving artifacts
+Finished: SUCCESS
