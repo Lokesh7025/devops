@@ -1,0 +1,33 @@
+Started by user [8mha:////4CyzGAremz8xP+qG2v9sXv0Q2ATXTJDjfLSixOhZ3uc+AAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzeEgYe/dLi1CL9nPzs1OIMAIt1cvrBAAAA[0mLokesh Selvam
+Running as SYSTEM
+Building in workspace C:\Users\lokes\jenkins-lab\home\workspace\01-freestyle-simple-commands
+[01-freestyle-simple-commands] $ cmd /c call C:\Users\lokes\AppData\Local\Temp\jenkins12620160723538871262.bat
+==================================================
+  Freestyle Project 1 - Simple Commands
+==================================================
+Job name     : 01-freestyle-simple-commands
+Build number : 1
+Build tag    : jenkins-01-freestyle-simple-commands-1
+Workspace    : C:\Users\lokes\jenkins-lab\home\workspace\01-freestyle-simple-commands
+Executed on  : built-in
+
+--- 1. Date and time ---
+Wed 08/05/2026 
+04:55 PM
+
+--- 2. Current working directory ---
+C:\Users\lokes\jenkins-lab\home\workspace\01-freestyle-simple-commands
+
+--- 3. Java version available to the build ---
+openjdk version "21.0.7" 2025-04-15 LTS
+OpenJDK Runtime Environment Temurin-21.0.7+6 (build 21.0.7+6-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.7+6 (build 21.0.7+6-LTS, mixed mode, sharing)
+
+--- 4. Write a file into the workspace, then read it back ---
+Hello from Jenkins build #1 
+
+--- 5. Workspace contents ---
+greeting.txt
+
+Build completed successfully.
+Finished: SUCCESS

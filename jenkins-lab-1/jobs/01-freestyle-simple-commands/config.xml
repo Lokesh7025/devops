@@ -1,0 +1,56 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <description>Lab 1, Part 1 - Freestyle project driven by simple commands.&#xd;
+Runs a single &apos;Execute Windows batch command&apos; build step that prints Jenkins environment variables, the date, the working directory and the Java version, then writes and reads back a file in the workspace.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>@echo off&#xd;
+echo ==================================================&#xd;
+echo   Freestyle Project 1 - Simple Commands&#xd;
+echo ==================================================&#xd;
+echo Job name     : %JOB_NAME%&#xd;
+echo Build number : %BUILD_NUMBER%&#xd;
+echo Build tag    : %BUILD_TAG%&#xd;
+echo Workspace    : %WORKSPACE%&#xd;
+echo Executed on  : %NODE_NAME%&#xd;
+echo.&#xd;
+&#xd;
+echo --- 1. Date and time ---&#xd;
+date /t&#xd;
+time /t&#xd;
+echo.&#xd;
+&#xd;
+echo --- 2. Current working directory ---&#xd;
+cd&#xd;
+echo.&#xd;
+&#xd;
+echo --- 3. Java version available to the build ---&#xd;
+java -version&#xd;
+echo.&#xd;
+&#xd;
+echo --- 4. Write a file into the workspace, then read it back ---&#xd;
+echo Hello from Jenkins build #%BUILD_NUMBER% &gt; greeting.txt&#xd;
+type greeting.txt&#xd;
+echo.&#xd;
+&#xd;
+echo --- 5. Workspace contents ---&#xd;
+dir /b&#xd;
+echo.&#xd;
+&#xd;
+echo Build completed successfully.&#xd;
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
