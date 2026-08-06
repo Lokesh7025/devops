@@ -132,7 +132,7 @@ This job checks out a real GitHub repository and builds it with Maven.
 |---------|-------|
 | Source Code Management | **Git** |
 | Repository URL | `https://github.com/Lokesh7025/devops.git` |
-| Credentials | *none* (public repository) |
+| Credentials | *none configured in Jenkins* — see the note below |
 | Branch specifier | `*/main` |
 | Build step | **Invoke top-level Maven targets** |
 | Maven Version | `Maven-3.9.16` |
@@ -141,6 +141,37 @@ This job checks out a real GitHub repository and builds it with Maven.
 
 The project on `main` is `com.snake:snake-game:1.0-SNAPSHOT`, which uses the
 `maven-shade-plugin` to produce an executable fat JAR named `snake.jar`.
+
+| # | Screenshot | Step |
+|---|-----------|------|
+| 27 | [`27-maven-project.png`](screenshots/27-maven-project.png) | The Maven project as Jenkins checked it out — Maven 3.9.16 on JDK 17, source layout, `pom.xml` coordinates, and the JARs `clean package` produced |
+
+Note that Maven runs on **JDK 17** (from `JAVA_HOME`) while the Jenkins controller itself runs on
+**JDK 21** — the `pom.xml` targets Java 17, so this is fine, but the two are not the same JVM.
+
+### Note: how the checkout actually authenticated
+
+**This repository is private**, and the Git plugin is configured with **no Jenkins credential** —
+yet the checkout succeeds. That is worth understanding rather than glossing over.
+
+The console prints `No credentials specified`, which means only that *Jenkins* has no credential
+for this job. Jenkins then shells out to the machine's `git.exe`, and Git for Windows is
+configured system-wide with:
+
+```
+C:/Program Files/Git/etc/gitconfig      credential.helper = manager
+```
+
+Git Credential Manager finds a stored `git:https://github.com` entry for user `Lokesh7025` in
+Windows Credential Manager and authenticates transparently. Because this Jenkins controller runs
+as the desktop user via `java -jar`, it inherits that credential store.
+
+**This is convenient for a lab and wrong for a real deployment.** Running Jenkins as a Windows
+service or on a build agent gives it a different user profile with no such credential, and the
+same job fails with `Authentication failed`. The correct configuration is a Jenkins credential —
+a GitHub personal access token or deploy key added under **Manage Jenkins → Credentials** and
+selected in the job's *Credentials* dropdown — so the job's access does not depend on whoever
+happens to be logged into the machine.
 
 ### Registering Maven as a Jenkins tool
 
@@ -273,7 +304,7 @@ variables, so no password is stored in this repository.
 ```
 jenkins-lab-1/
 ├── README.md                 this report
-├── screenshots/              26 screenshots, numbered in execution order
+├── screenshots/              27 screenshots, numbered in execution order
 ├── jobs/                     exported config.xml for both freestyle projects
 ├── logs/                     full console logs of every build
 └── tools/                    scripts used to install, drive and capture the lab
