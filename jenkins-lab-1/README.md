@@ -142,9 +142,18 @@ This job checks out a real GitHub repository and builds it with Maven.
 The project on `main` is `com.snake:snake-game:1.0-SNAPSHOT`, which uses the
 `maven-shade-plugin` to produce an executable fat JAR named `snake.jar`.
 
+### The source being built
+
 | # | Screenshot | Step |
 |---|-----------|------|
 | 27 | [`27-maven-project.png`](screenshots/27-maven-project.png) | The Maven project as Jenkins checked it out — Maven 3.9.16 on JDK 17, source layout, `pom.xml` coordinates, and the JARs `clean package` produced |
+| 28 | [`28-github-repo-main.png`](screenshots/28-github-repo-main.png) | The repository on GitHub, branch `main` — `pom.xml`, `src/main/java/com/snake`, Java 100%, and the **Private** badge |
+| 29 | [`29-github-maven-pom.png`](screenshots/29-github-maven-pom.png) | `pom.xml` on GitHub — the Maven descriptor Jenkins builds |
+| 30 | [`30-github-lab-branch.png`](screenshots/30-github-lab-branch.png) | The `jenkins-lab-1` branch on GitHub, holding this report |
+
+Screenshot 28 is worth cross-checking against screenshot 19: GitHub shows `main` at commit
+**`0a3a96f`**, and that is exactly the revision the Jenkins console reports checking out
+(`Checking out Revision 0a3a96f27990a09acd8e1c3ad263e39bd7ca58ad`). The two sides agree.
 
 Note that Maven runs on **JDK 17** (from `JAVA_HOME`) while the Jenkins controller itself runs on
 **JDK 21** — the `pom.xml` targets Java 17, so this is fine, but the two are not the same JVM.
@@ -293,6 +302,7 @@ source from a remote SCM, and turning it into a versioned, archived build artifa
 | `step6`–`step11` | Register Maven, then create, configure, build and capture project 2 |
 | `step12_build_in_progress.py` | Trigger a build and capture it mid-execution |
 | `Capture-SnakeRun.ps1` | Run the archived `snake.jar` and burst-capture the game |
+| `step14_github_authed.py` | Open a visible browser for the user to sign in to GitHub, then capture the repository pages |
 
 The admin credentials are read from `JENKINS_ADMIN_USER` / `JENKINS_ADMIN_PASS` environment
 variables, so no password is stored in this repository.
@@ -304,7 +314,7 @@ variables, so no password is stored in this repository.
 ```
 jenkins-lab-1/
 ├── README.md                 this report
-├── screenshots/              27 screenshots, numbered in execution order
+├── screenshots/              30 screenshots, numbered in execution order
 ├── jobs/                     exported config.xml for both freestyle projects
 ├── logs/                     full console logs of every build
 └── tools/                    scripts used to install, drive and capture the lab

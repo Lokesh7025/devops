@@ -19,16 +19,16 @@ EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
 class Browser:
     def __init__(self, port=9222, profile=r"C:\Users\lokes\jenkins-lab\edge-cdp-profile",
-                 width=1500, height=1000, headless=True, attach=False):
+                 width=1500, height=1000, headless=True, attach=False, ws_url=None):
         self.port = port
         self.width, self.height = width, height
         self._msg_id = 0
         self.proc = None
 
         # Reuse a browser this lab already left running, so the logged-in Jenkins
-        # session survives between phase scripts.
-        if attach and self._endpoint(port):
-            self._open(port)
+        # session survives between phase scripts. ws_url pins a specific tab.
+        if attach and (ws_url or self._endpoint(port)):
+            self._open(port, ws_url)
             return
 
         args = [
