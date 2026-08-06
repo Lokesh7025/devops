@@ -1,0 +1,106 @@
+Started by user Lokesh Selvam
+Checking out git git@github.com:Lokesh7025/devops.git into C:\Users\lokes\jenkins-lab\home\workspace\snake-game-on-azure-agent@script\fb7cad725a92ae671d27d450110d27f6defc2fae8687654fa0f2f98cf26dd04d to read Jenkinsfile
+The recommended git tool is: NONE
+using credential github-deploy-key
+Cloning the remote Git repository
+Cloning repository git@github.com:Lokesh7025/devops.git
+ > git.exe init C:\Users\lokes\jenkins-lab\home\workspace\snake-game-on-azure-agent@script\fb7cad725a92ae671d27d450110d27f6defc2fae8687654fa0f2f98cf26dd04d # timeout=10
+Fetching upstream changes from git@github.com:Lokesh7025/devops.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.47.1.windows.2'
+using GIT_SSH to set credentials Read-only GitHub deploy key for Lokesh7025/devops
+Verifying host key using known hosts file
+ > git.exe fetch --tags --force --progress -- git@github.com:Lokesh7025/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url git@github.com:Lokesh7025/devops.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/jenkins-lab-2^{commit}" # timeout=10
+Checking out Revision ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 (refs/remotes/origin/jenkins-lab-2)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 # timeout=10
+Commit message: "Add the Lab 2 pipeline that builds on an Azure agent node"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on azure-agent-1 in /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential github-deploy-key
+Cloning the remote Git repository
+Cloning repository git@github.com:Lokesh7025/devops.git
+ > git.exe init /home/azureuser/jenkins/workspace/snake-game-on-azure-agent # timeout=10
+ERROR: Error cloning remote repo 'origin'
+hudson.plugins.git.GitException: Could not init /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl$5.execute(CliGitAPIImpl.java:1082)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:828)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler$GitCommandMasterToSlaveCallable.call(RemoteGitImpl.java:173)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler$GitCommandMasterToSlaveCallable.call(RemoteGitImpl.java:164)
+	at hudson.remoting.UserRequest.perform(UserRequest.java:225)
+	at hudson.remoting.UserRequest.perform(UserRequest.java:50)
+	at hudson.remoting.Request$2.run(Request.java:391)
+	at hudson.remoting.InterceptingExecutorService.lambda$wrap$0(InterceptingExecutorService.java:81)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: hudson.remoting.Channel$CallSiteStackTrace: Remote call to azure-agent-1
+		at hudson.remoting.Channel.attachCallSiteStackTrace(Channel.java:1916)
+		at hudson.remoting.UserRequest$ExceptionResponse.retrieve(UserRequest.java:384)
+		at hudson.remoting.Channel.call(Channel.java:1108)
+		at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler.execute(RemoteGitImpl.java:155)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler.invoke(RemoteGitImpl.java:140)
+		at PluginClassLoader for git-client/jdk.proxy58/jdk.proxy58.$Proxy135.execute(Unknown Source)
+		at PluginClassLoader for git//hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1220)
+		at PluginClassLoader for git//hudson.plugins.git.GitSCM._checkout(GitSCM.java:1310)
+		at PluginClassLoader for git//hudson.plugins.git.GitSCM.checkout(GitSCM.java:1277)
+		at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:136)
+		at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:101)
+		at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:88)
+		at PluginClassLoader for workflow-step-api//org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:49)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: hudson.plugins.git.GitException: Error performing git command: git.exe init /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2868)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2777)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2772)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommand(CliGitAPIImpl.java:2055)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl$5.execute(CliGitAPIImpl.java:1080)
+	... 11 more
+Caused by: java.io.IOException: Cannot run program "git.exe" (in directory "/home/azureuser/jenkins/workspace/snake-game-on-azure-agent"): Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at Jenkins v2.568.1//hudson.Proc$LocalProc.<init>(Proc.java:249)
+	at Jenkins v2.568.1//hudson.Proc$LocalProc.<init>(Proc.java:218)
+	at Jenkins v2.568.1//hudson.Launcher$LocalLauncher.launch(Launcher.java:995)
+	at Jenkins v2.568.1//hudson.Launcher$ProcStarter.start(Launcher.java:507)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2845)
+	... 15 more
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 21 more
+ERROR: Error cloning remote repo 'origin'
+ERROR: Maximum checkout retry attempts reached, aborting
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Finished on node: null
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] End of Pipeline
+ERROR: Error cloning remote repo 'origin'
+Finished: FAILURE

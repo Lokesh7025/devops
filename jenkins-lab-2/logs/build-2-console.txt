@@ -1,0 +1,241 @@
+Started by user Lokesh Selvam
+Checking out git git@github.com:Lokesh7025/devops.git into C:\Users\lokes\jenkins-lab\home\workspace\snake-game-on-azure-agent@script\fb7cad725a92ae671d27d450110d27f6defc2fae8687654fa0f2f98cf26dd04d to read Jenkinsfile
+The recommended git tool is: NONE
+using credential github-deploy-key
+ > git.exe rev-parse --resolve-git-dir C:\Users\lokes\jenkins-lab\home\workspace\snake-game-on-azure-agent@script\fb7cad725a92ae671d27d450110d27f6defc2fae8687654fa0f2f98cf26dd04d\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url git@github.com:Lokesh7025/devops.git # timeout=10
+Fetching upstream changes from git@github.com:Lokesh7025/devops.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.47.1.windows.2'
+using GIT_SSH to set credentials Read-only GitHub deploy key for Lokesh7025/devops
+Verifying host key using known hosts file
+ > git.exe fetch --tags --force --progress -- git@github.com:Lokesh7025/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/jenkins-lab-2^{commit}" # timeout=10
+Checking out Revision ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 (refs/remotes/origin/jenkins-lab-2)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 # timeout=10
+Commit message: "Add the Lab 2 pipeline that builds on an Azure agent node"
+ > git.exe rev-list --no-walk ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on azure-agent-1 in /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential github-deploy-key
+Cloning the remote Git repository
+Cloning repository git@github.com:Lokesh7025/devops.git
+ > /usr/bin/git init /home/azureuser/jenkins/workspace/snake-game-on-azure-agent # timeout=10
+Fetching upstream changes from git@github.com:Lokesh7025/devops.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+using GIT_SSH to set credentials Read-only GitHub deploy key for Lokesh7025/devops
+Verifying host key using known hosts file
+ > /usr/bin/git fetch --tags --force --progress -- git@github.com:Lokesh7025/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url git@github.com:Lokesh7025/devops.git # timeout=10
+ > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 (refs/remotes/origin/jenkins-lab-2)
+ > /usr/bin/git rev-parse refs/remotes/origin/jenkins-lab-2^{commit} # timeout=10
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 # timeout=10
+Commit message: "Add the Lab 2 pipeline that builds on an Azure agent node"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Where am I running)
+[Pipeline] sh
+[2026-08-06T06:50:59.307Z] + echo Jenkins node : azure-agent-1
+[2026-08-06T06:50:59.307Z] Jenkins node : azure-agent-1
+[2026-08-06T06:50:59.307Z] + echo Workspace    : /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+[2026-08-06T06:50:59.307Z] Workspace    : /home/azureuser/jenkins/workspace/snake-game-on-azure-agent
+[2026-08-06T06:50:59.307Z] + hostname
+[2026-08-06T06:50:59.308Z] + echo Host         : jenkins-agent-1
+[2026-08-06T06:50:59.308Z] Host         : jenkins-agent-1
+[2026-08-06T06:50:59.308Z] + whoami
+[2026-08-06T06:50:59.308Z] + echo User         : azureuser
+[2026-08-06T06:50:59.308Z] User         : azureuser
+[2026-08-06T06:50:59.308Z] + uname -srm
+[2026-08-06T06:50:59.308Z] + echo Kernel       : Linux 6.17.0-1021-azure x86_64
+[2026-08-06T06:50:59.308Z] Kernel       : Linux 6.17.0-1021-azure x86_64
+[2026-08-06T06:50:59.308Z] + . /etc/os-release
+[2026-08-06T06:50:59.308Z] + PRETTY_NAME=Ubuntu 24.04.4 LTS
+[2026-08-06T06:50:59.308Z] + NAME=Ubuntu
+[2026-08-06T06:50:59.308Z] + VERSION_ID=24.04
+[2026-08-06T06:50:59.308Z] + VERSION=24.04.4 LTS (Noble Numbat)
+[2026-08-06T06:50:59.308Z] + VERSION_CODENAME=noble
+[2026-08-06T06:50:59.308Z] + ID=ubuntu
+[2026-08-06T06:50:59.308Z] + ID_LIKE=debian
+[2026-08-06T06:50:59.308Z] + HOME_URL=https://www.ubuntu.com/
+[2026-08-06T06:50:59.308Z] + SUPPORT_URL=https://help.ubuntu.com/
+[2026-08-06T06:50:59.308Z] + BUG_REPORT_URL=https://bugs.launchpad.net/ubuntu/
+[2026-08-06T06:50:59.308Z] + PRIVACY_POLICY_URL=https://www.ubuntu.com/legal/terms-and-policies/privacy-policy
+[2026-08-06T06:50:59.308Z] + UBUNTU_CODENAME=noble
+[2026-08-06T06:50:59.308Z] + LOGO=ubuntu-logo
+[2026-08-06T06:50:59.308Z] + echo Ubuntu 24.04.4 LTS
+[2026-08-06T06:50:59.308Z] + echo Distro       : Ubuntu 24.04.4 LTS
+[2026-08-06T06:50:59.308Z] Distro       : Ubuntu 24.04.4 LTS
+[2026-08-06T06:50:59.308Z] + curl -s --max-time 10 https://api.ipify.org
+[2026-08-06T06:50:59.308Z] + echo Public IP    : 20.244.18.166
+[2026-08-06T06:50:59.308Z] Public IP    : 20.244.18.166
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Toolchain)
+[Pipeline] sh
+[2026-08-06T06:51:00.532Z] + java -version
+[2026-08-06T06:51:00.532Z] openjdk version "21.0.11" 2026-04-21
+[2026-08-06T06:51:00.532Z] OpenJDK Runtime Environment (build 21.0.11+10-1-24.04.2-Ubuntu)
+[2026-08-06T06:51:00.532Z] OpenJDK 64-Bit Server VM (build 21.0.11+10-1-24.04.2-Ubuntu, mixed mode, sharing)
+[Pipeline] sh
+[2026-08-06T06:51:02.673Z] + mvn -version
+[2026-08-06T06:51:02.673Z] [1mApache Maven 3.8.7[m
+[2026-08-06T06:51:02.674Z] Maven home: /usr/share/maven
+[2026-08-06T06:51:02.674Z] Java version: 21.0.11, vendor: Ubuntu, runtime: /usr/lib/jvm/java-21-openjdk-amd64
+[2026-08-06T06:51:02.674Z] Default locale: en, platform encoding: UTF-8
+[2026-08-06T06:51:02.674Z] OS name: "linux", version: "6.17.0-1021-azure", arch: "amd64", family: "unix"
+[Pipeline] sh
+[2026-08-06T06:51:03.689Z] + git --version
+[2026-08-06T06:51:03.689Z] git version 2.43.0
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+[2026-08-06T06:51:04.040Z] The recommended git tool is: NONE
+[2026-08-06T06:51:04.281Z] using credential github-deploy-key
+[2026-08-06T06:51:04.376Z] Fetching changes from the remote Git repository
+[2026-08-06T06:51:12.063Z]  > /usr/bin/git rev-parse --resolve-git-dir /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/.git # timeout=10
+[2026-08-06T06:51:12.184Z]  > /usr/bin/git config remote.origin.url git@github.com:Lokesh7025/devops.git # timeout=10
+[2026-08-06T06:51:12.285Z] Fetching upstream changes from git@github.com:Lokesh7025/devops.git
+[2026-08-06T06:51:12.286Z]  > /usr/bin/git --version # timeout=10
+[2026-08-06T06:51:12.289Z]  > git --version # 'git version 2.43.0'
+[2026-08-06T06:51:12.290Z] using GIT_SSH to set credentials Read-only GitHub deploy key for Lokesh7025/devops
+[2026-08-06T06:51:12.291Z] Verifying host key using known hosts file
+[2026-08-06T06:51:12.297Z]  > /usr/bin/git fetch --tags --force --progress -- git@github.com:Lokesh7025/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-08-06T06:51:07.009Z] Checking out Revision ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 (refs/remotes/origin/jenkins-lab-2)
+[2026-08-06T06:51:07.079Z] Commit message: "Add the Lab 2 pipeline that builds on an Azure agent node"
+[Pipeline] sh
+[2026-08-06T06:51:14.732Z]  > /usr/bin/git rev-parse refs/remotes/origin/jenkins-lab-2^{commit} # timeout=10
+[2026-08-06T06:51:14.781Z]  > /usr/bin/git config core.sparsecheckout # timeout=10
+[2026-08-06T06:51:14.784Z]  > /usr/bin/git checkout -f ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100 # timeout=10
+[2026-08-06T06:51:08.068Z] + git log -1 --pretty=commit %H%nauthor %an%ndate   %ad%nsubject %s
+[2026-08-06T06:51:08.069Z] commit ab2ddb8bf7d3c238e396d2741ce1afccd0a5d100
+[2026-08-06T06:51:08.069Z] author Lokesh Selvam
+[2026-08-06T06:51:08.069Z] date   Thu Aug 6 11:28:14 2026 +0530
+[2026-08-06T06:51:08.069Z] subject Add the Lab 2 pipeline that builds on an Azure agent node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+[2026-08-06T06:51:08.885Z] + mvn -B -ntp clean package
+[2026-08-06T06:51:10.180Z] [INFO] Scanning for projects...
+[2026-08-06T06:51:10.180Z] [INFO] 
+[2026-08-06T06:51:10.180Z] [INFO] ------------------------< com.snake:snake-game >------------------------
+[2026-08-06T06:51:10.180Z] [INFO] Building snake-game 1.0-SNAPSHOT
+[2026-08-06T06:51:10.180Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-08-06T06:51:12.685Z] [INFO] 
+[2026-08-06T06:51:12.685Z] [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ snake-game ---
+[2026-08-06T06:51:13.054Z] [INFO] 
+[2026-08-06T06:51:13.054Z] [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ snake-game ---
+[2026-08-06T06:51:16.360Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-08-06T06:51:16.360Z] [INFO] skip non existing resourceDirectory /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/src/main/resources
+[2026-08-06T06:51:16.360Z] [INFO] 
+[2026-08-06T06:51:16.360Z] [INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ snake-game ---
+[2026-08-06T06:51:18.314Z] [INFO] Changes detected - recompiling the module! :dependency
+[2026-08-06T06:51:18.315Z] [INFO] Compiling 4 source files with javac [debug target 17] to target/classes
+[2026-08-06T06:51:19.307Z] [WARNING] system modules path not set in conjunction with -source 17
+[2026-08-06T06:51:19.307Z] [INFO] /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/src/main/java/com/snake/Main.java: /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/src/main/java/com/snake/Main.java uses or overrides a deprecated API.
+[2026-08-06T06:51:19.308Z] [INFO] /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/src/main/java/com/snake/Main.java: Recompile with -Xlint:deprecation for details.
+[2026-08-06T06:51:19.308Z] [INFO] 
+[2026-08-06T06:51:19.308Z] [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ snake-game ---
+[2026-08-06T06:51:19.308Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-08-06T06:51:19.308Z] [INFO] skip non existing resourceDirectory /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/src/test/resources
+[2026-08-06T06:51:19.308Z] [INFO] 
+[2026-08-06T06:51:19.308Z] [INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ snake-game ---
+[2026-08-06T06:51:19.308Z] [INFO] No sources to compile
+[2026-08-06T06:51:19.308Z] [INFO] 
+[2026-08-06T06:51:19.308Z] [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ snake-game ---
+[2026-08-06T06:51:20.954Z] [INFO] No tests to run.
+[2026-08-06T06:51:20.954Z] [INFO] 
+[2026-08-06T06:51:20.954Z] [INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ snake-game ---
+[2026-08-06T06:51:21.440Z] [INFO] Building jar: /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/target/snake.jar
+[2026-08-06T06:51:21.440Z] [INFO] 
+[2026-08-06T06:51:21.440Z] [INFO] --- maven-shade-plugin:3.5.1:shade (default) @ snake-game ---
+[2026-08-06T06:51:23.266Z] [INFO] Including com.googlecode.lanterna:lanterna:jar:3.1.1 in the shaded jar.
+[2026-08-06T06:51:23.267Z] [INFO] Dependency-reduced POM written at: /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/dependency-reduced-pom.xml
+[2026-08-06T06:51:23.267Z] [WARNING] lanterna-3.1.1.jar, snake.jar define 1 overlapping resource: 
+[2026-08-06T06:51:23.267Z] [WARNING]   - META-INF/MANIFEST.MF
+[2026-08-06T06:51:23.267Z] [WARNING] maven-shade-plugin has detected that some files are
+[2026-08-06T06:51:23.267Z] [WARNING] present in two or more JARs. When this happens, only one
+[2026-08-06T06:51:23.267Z] [WARNING] single version of the file is copied to the uber jar.
+[2026-08-06T06:51:23.267Z] [WARNING] Usually this is not harmful and you can skip these warnings,
+[2026-08-06T06:51:23.267Z] [WARNING] otherwise try to manually exclude artifacts based on
+[2026-08-06T06:51:23.267Z] [WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[2026-08-06T06:51:23.267Z] [WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[2026-08-06T06:51:23.267Z] [INFO] Replacing original artifact with shaded artifact.
+[2026-08-06T06:51:23.267Z] [INFO] Replacing /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/target/snake.jar with /home/azureuser/jenkins/workspace/snake-game-on-azure-agent/target/snake-game-1.0-SNAPSHOT-shaded.jar
+[2026-08-06T06:51:23.267Z] [INFO] ------------------------------------------------------------------------
+[2026-08-06T06:51:23.267Z] [INFO] BUILD SUCCESS
+[2026-08-06T06:51:23.267Z] [INFO] ------------------------------------------------------------------------
+[2026-08-06T06:51:23.267Z] [INFO] Total time:  13.275 s
+[2026-08-06T06:51:23.267Z] [INFO] Finished at: 2026-08-06T06:51:30Z
+[2026-08-06T06:51:23.267Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify artifact)
+[Pipeline] sh
+[2026-08-06T06:51:24.484Z] + ls -lh target/snake.jar
+[2026-08-06T06:51:24.485Z] -rw-rw-r-- 1 azureuser azureuser 573K Aug  6 06:51 target/snake.jar
+[2026-08-06T06:51:24.485Z] + echo --- manifest ---
+[2026-08-06T06:51:24.485Z] --- manifest ---
+[2026-08-06T06:51:24.485Z] + unzip -p target/snake.jar META-INF/MANIFEST.MF
+[2026-08-06T06:51:24.485Z] Manifest-Version: 1.0
+[2026-08-06T06:51:24.485Z] Archiver-Version: Plexus Archiver
+[2026-08-06T06:51:24.485Z] Created-By: Apache Maven 3.8.7
+[2026-08-06T06:51:24.485Z] Built-By: azureuser
+[2026-08-06T06:51:24.485Z] Build-Jdk: 21.0.11
+[2026-08-06T06:51:24.485Z] Main-Class: com.snake.Main
+[2026-08-06T06:51:24.485Z] 
+[2026-08-06T06:51:24.485Z] + echo --- sha256 ---
+[2026-08-06T06:51:24.485Z] --- sha256 ---
+[2026-08-06T06:51:24.485Z] + sha256sum target/snake.jar
+[2026-08-06T06:51:24.485Z] c7846fe0e9a766f5039a2ba9d063dd82a3497e4877b6ac04f04444a17dbf6ea0  target/snake.jar
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Archive)
+[Pipeline] archiveArtifacts
+[2026-08-06T06:51:25.026Z] Archiving artifacts
+[2026-08-06T06:51:29.325Z] Recording fingerprints
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2026-08-06T06:51:29.650Z] Finished on node: azure-agent-1
+[Pipeline] echo
+[2026-08-06T06:51:29.698Z] SUCCESS - snake.jar was built on azure-agent-1, not on the controller.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

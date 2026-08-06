@@ -1,0 +1,31 @@
+#cloud-config
+# Prepares the Azure VM to act as a Jenkins agent node.
+#
+# The Jenkins controller launches the agent over SSH, so the VM only has to
+# provide a JVM for the agent process plus the build toolchain the pipeline
+# needs (Maven and git). Nothing Jenkins-specific is installed here: the
+# controller copies remoting.jar across on first connect.
+package_update: true
+package_upgrade: false
+
+packages:
+  - openjdk-21-jdk-headless
+  - maven
+  - git
+  - unzip
+
+write_files:
+  - path: /etc/profile.d/jenkins-agent.sh
+    permissions: '0644'
+    content: |
+      export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+      export PATH="$JAVA_HOME/bin:$PATH"
+
+runcmd:
+  # Remote root directory the controller will use as the agent workspace.
+  - [ mkdir, -p, /home/azureuser/jenkins ]
+  - [ chown, -R, 'azureuser:azureuser', /home/azureuser/jenkins ]
+  # Leave a marker the provisioning script can poll for, so we only report the
+  # node ready once the toolchain is genuinely installed.
+  - [ sh, -c, 'java -version 2>/tmp/java.txt; mvn -v > /tmp/mvn.txt 2>&1; git --version > /tmp/git.txt 2>&1' ]
+  - [ sh, -c, 'touch /home/azureuser/.agent-ready' ]

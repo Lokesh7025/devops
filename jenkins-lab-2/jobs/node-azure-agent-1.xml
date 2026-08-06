@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<slave>
+  <name>azure-agent-1</name>
+  <description>Ubuntu 24.04 VM in Microsoft Azure (Standard_D2ls_v5, centralindia)</description>
+  <remoteFS>/home/azureuser/jenkins</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@3.1097.v868116049892">
+    <host>20.244.18.166</host>
+    <port>22</port>
+    <credentialsId>azure-agent-ssh</credentialsId>
+    <launchTimeoutSeconds>120</launchTimeoutSeconds>
+    <maxNumRetries>5</maxNumRetries>
+    <retryWaitTime>20</retryWaitTime>
+    <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
+  </launcher>
+  <label>azure linux</label>
+  <nodeProperties>
+    <hudson.tools.ToolLocationNodeProperty>
+      <locations>
+        <hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+          <type>hudson.plugins.git.GitTool$DescriptorImpl</type>
+          <name>Default</name>
+          <home>/usr/bin/git</home>
+        </hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+      </locations>
+    </hudson.tools.ToolLocationNodeProperty>
+  </nodeProperties>
+</slave>

@@ -1,0 +1,14 @@
+{
+  "resourceGroup": "rg-jenkins-lab2",
+  "location": "centralindia",
+  "vmName": "jenkins-agent-1",
+  "vmSize": "Standard_D2ls_v5",
+  "image": "Ubuntu Server 24.04 LTS - x64 Gen2",
+  "adminUser": "azureuser",
+  "publicIp": "20.244.18.166",
+  "keyFile": "C:\\Users\\lokes\\jenkins-lab\\lab2\\ssh\\jenkins_agent_key",
+  "deployKeyFile": "C:\\Users\\lokes\\jenkins-lab\\lab2\\ssh\\github_deploy_key",
+  "allowedFrom": "14.139.161.250",
+  "createdVia": "Azure portal (the CLI was blocked by free-trial SKU restrictions)",
+  "nsg": "jenkins-agent-1-nsg"
+}
