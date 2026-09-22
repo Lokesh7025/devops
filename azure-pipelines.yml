@@ -1,0 +1,25 @@
+trigger:
+    - main
+
+pool:
+     vmImage: ubuntu-latest
+
+steps:
+     - task: Maven@4
+       displayName: Build with Maven
+       inputs:
+         mavenPomFile: pom.xml
+         goals: clean verify
+         options: --batch-mode
+         javaHomeOption: JDKVersion
+         jdkVersionOption: "1.17"
+         mavenVersionOption: Default
+         publishJUnitResults: true
+         testResultsFiles: "**/surefire-reports/TEST-*.xml"
+
+     - task: PublishPipelineArtifact@1
+       displayName: Publish executable JAR
+       inputs:
+         targetPath: "$(System.DefaultWorkingDirectory)/target/snake.jar"
+         artifact: snake-game
+         publishLocation: pipeline
